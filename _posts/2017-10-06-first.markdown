@@ -1,13 +1,13 @@
 ---
-title: '弟弟片'
+title: '今天有了正式博客,撒花'
 layout: post
 guid: urn:uuid:b87da13a-a4dd-402f-b06a-cef7eeee2d80
 tags:
     - linux
 ---
 
-哈哈哈
+虽然还不太会用,但是已经有点小激动了,装逼大法要练好,漂漂的开始搬砖吧~
+哈哈哈哈,不知道说点啥好,那就乐一会吧
+[![](/media/files/2017/110701.jpg)]
 
-[![](/media/files/2017/xx.jpg)]
 
-lala
