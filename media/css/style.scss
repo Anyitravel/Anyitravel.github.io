@@ -196,6 +196,12 @@ ul.listing {
       background-size: cover;
       background-position: center;
     }
+    .thumb.letter {
+      background: #999;
+      color: #666;
+      font-size: 120px;
+      text-align: center
+    }
     .excerpt {
       margin: 0;
       padding: 0 0 2.5em 0;
@@ -204,12 +210,14 @@ ul.listing {
       width: 310px;
       .thumb {
         height: 310px;
+        line-height: 310px;
       }
     }
     @include min-screen(990px) {
       width: 300px;
       .thumb {
         height: 300px;
+        line-height: 300px;
       }
     }
   }

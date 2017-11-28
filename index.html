@@ -10,8 +10,9 @@ page_name: index
         <b class="thumb"
             style="background-image: url({{ post.thumb | absolute_url}})"></b>
     {% else %}
-        <b class="thumb"
-            style="background-image: url({{ '/media/files/default_thumb.jpg' | absolute_url }})"></b>
+        <b class="thumb letter">
+            {{ post.title | truncate: 1,"" }}
+        </b>
     {% endif %}
     <h1>{{ post.title }}</h1>
     <time datetime="{{ post.date | date:"%B %d, %Y" }}">
