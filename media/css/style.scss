@@ -1,23 +1,9 @@
 ---
 ---
-/*------------------------------------
- * sext-vi
- *
- * @author linghua.zhang@me.com
- * @link http://lhzhang.com/
- * @update 2015-07-24
- *
- * |/ | (~ (~
- * |\.|._)._)
- * --------------------------------- */
 
-@import url('//fonts.googleapis.com/earlyaccess/notosanssc.css');
-@import url('//fonts.googleapis.com/css?family=Source+Code+Pro');
-
-$font: "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+$font: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
 $monospace: "Source Code Pro", monospace;
 $label-font: "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-$time-font: "Ubuntu", monospace;
 $background-color: #f9f9f9;
 
 //  Author: Rafal Bromirski
@@ -57,310 +43,92 @@ $background-color: #f9f9f9;
   }
 }
 
-@mixin screen-height($res-min, $res-max, $orientation: false) {
-  @if $orientation {
-    @media screen and (min-height: $res-min) and (max-height: $res-max)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-  @else {
-    @media screen and (min-height: $res-min) and (max-height: $res-max) {
-      @content;
-    }
-  }
-}
-
-@mixin max-screen-height($res) {
-  @media screen and (max-height: $res) {
-    @content;
-  }
-}
-
-@mixin min-screen-height($res) {
-  @media screen and (min-height: $res) {
-    @content;
-  }
-}
-
-// --- hdpi --------------------------------------------------------------------
-
-// Based on bourbon hidpi-media-queries file
-// (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
-// HiDPI mixin. Default value set to 1.3 to target Google Nexus 7
-// (http://bjango.com/articles/min-device-pixel-ratio/)
-
-@mixin hdpi($ratio: 1.3) {
-  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
-  only screen and (min--moz-device-pixel-ratio: $ratio),
-  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
-  only screen and (min-resolution: #{round($ratio*96)}dpi),
-  only screen and (min-resolution: #{$ratio}dppx) {
-    @content;
-  }
-}
-
-// --- hdtv --------------------------------------------------------------------
-
-@mixin hdtv($standard: '1080') {
-  $device-min-width: false;
-  $device-min-height: false;
-
-  $standards: ('720p', 1280px, 720px)
-              ('1080', 1920px, 1080px)
-              ('2K', 2048px, 1080px)
-              ('4K', 4096px, 2160px);
-
-  @each $s in $standards {
-    @if $standard == nth($s, 1) {
-      $device-min-width: nth($s, 2);
-      $device-min-height: nth($s, 3);
-    }
-  }
-
-  @media only screen
-  and (min-device-width: $device-min-width)
-  and (min-device-height: $device-min-height)
-  and (min-width: $device-min-width)
-  and (min-height: $device-min-height) {
-    @content;
-  }
-}
-
-// --- iphone-3 ----------------------------------------------------------------
-
-@mixin iphone3($orientation: all) {
-  $device-min-width: 320px;
-  $device-max-width: 480px;
-  $device-pixel-ratio: 1;
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- iphone4 -----------------------------------------------------------------
-
-@mixin iphone4($orientation: all) {
-  $device-min-width: 320px;
-  $device-max-width: 480px;
-  $device-pixel-ratio: 2;
-  $device-aspect-ratio: '2/3';
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (device-aspect-ratio: $device-aspect-ratio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (device-aspect-ratio: 2/3)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- iphone5 -----------------------------------------------------------------
-
-@mixin iphone5($orientation: all) {
-  $device-min-width: 320px;
-  $device-max-width: 568px;
-  $device-pixel-ratio: 2;
-  $device-aspect-ratio: '40/71';
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (device-aspect-ratio: $device-aspect-ratio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (device-aspect-ratio: $device-aspect-ratio)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- iphone6 -----------------------------------------------------------------
-
-@mixin iphone6($orientation: all) {
-  $deviceMinWidth: 375px;
-  $deviceMaxWidth: 667px;
-  $devicePixelRatio: 2;
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $deviceMinWidth)
-    and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $deviceMinWidth)
-    and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    and (orientation: #{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- iphone6 plus ------------------------------------------------------------
-
-@mixin iphone6-plus($orientation: all) {
-  $deviceMinWidth: 414px;
-  $deviceMaxWidth: 736px;
-  $devicePixelRatio: 3;
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $deviceMinWidth)
-    and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $deviceMinWidth)
-    and (max-device-width: $deviceMaxWidth)
-    and (-webkit-device-pixel-ratio: $devicePixelRatio)
-    and (orientation: #{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- ipad (all) --------------------------------------------------------------
-
-@mixin ipad($orientation: all) {
-  $device-min-width: 768px;
-  $device-max-width: 1024px;
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- ipad-retina -------------------------------------------------------------
-
-@mixin ipad-retina($orientation: all) {
-  $device-min-width: 768px;
-  $device-max-width: 1024px;
-  $device-pixel-ratio: 2;
-
-  @if $orientation == all {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio) {
-      @content;
-    }
-  }
-  @else {
-    @media only screen
-    and (min-device-width: $device-min-width)
-    and (max-device-width: $device-max-width)
-    and (-webkit-device-pixel-ratio: $device-pixel-ratio)
-    and (orientation:#{$orientation}) {
-      @content;
-    }
-  }
-}
-
-// --- orientation -------------------------------------------------------------
-
-@mixin _orientation($orientation) {
-  @media screen and (orientation: $orientation) {
-    @content;
-  }
-}
-
-@mixin landscape() {
-  @include _orientation(landscape) {
-    @content;
-  }
-}
-
-@mixin portrait() {
-  @include _orientation(portrait) {
-    @content;
-  }
-}
-
-
 @mixin page {
   margin: 0 auto;
-  @include min-screen(320px) { width: 300px; }
-  @include min-screen(375px) { width: 350px; }
-  @include min-screen(414px) { width: 400px; }
-  @include min-screen(800px) { width: 750px; }
+  @include min-screen(320px) {
+    width: 300px;
+  }
+  @include min-screen(375px) {
+    width: 350px;
+  }
+  @include min-screen(414px) {
+    width: 400px;
+  }
+  @include min-screen(800px) {
+    width: 750px;
+  }
 }
 
-* { margin: 0; padding: 0; }
-body { font-size: 14px; font-family: #{$font}; color: #555; background-color: $background-color; -webkit-font-smoothing: antialiased; }
-ol, ul { list-style-position: inside; }
-li { padding: .2em 0; }
-hr { width: 4em; border: none; border-top: 1px dashed #d0d0d0; border-bottom: 1px dashed #f9f9f9; }
-.center { text-align: center; }
-::selection { color: #fff; background-color: #333; }
-a { text-decoration: none; color: #bb2222; &:hover { color: #dd1144; }; }
-blockquote { background-color: #f8f8f8; padding: 0 1em; border: 1px dashed #eee !important; border-color: #e0e0e0 !important; font-size: 13px; line-height: 1.6; display: block; overflow: auto; }
-pre code { @extend blockquote; }
-code { background-color: #f8f8f8; padding: 2px 5px; border: 1px dashed #e0e0e0; font-family: #{$monospace}; }
-h1, h2 { font-size: 1.4em; }
-time { font-family: #{$time-font} }
+@mixin wide-page {
+  margin: 0 auto;
+  @include min-screen(320px) {
+    width: 300px;
+  }
+  @include min-screen(375px) {
+    width: 350px;
+  }
+  @include min-screen(414px) {
+    width: 400px;
+  }
+  @include min-screen(660px) {
+    width: 660px;
+  }
+  @include min-screen(990px) {
+    width: 990px;
+  }
+  @include min-screen(1320px) {
+    width: 1320px;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: #{$font};
+  font-weight: 300;
+  color: #555;
+  background-color: $background-color;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  color: #fff;
+  background-color: #333;
+}
+a {
+  color: #555;
+  text-decoration: none;
+}
+blockquote {
+  background-color: #f8f8f8;
+  padding: 0 1em;
+  border: 1px dashed #eee !important;
+  border-color: #e0e0e0 !important;
+  font-size: 13px;
+  line-height: 1.6;
+  display: block;
+  overflow: auto;
+}
+pre code {
+  @extend blockquote;
+}
+code {
+  background-color: #f8f8f8;
+  padding: 2px 5px;
+  border: 1px dashed #e0e0e0;
+  font-family: #{$monospace};
+}
+h1, h2 {
+  font-size: 1.4em;
+}
 
 header {
-  @include page;
   text-align: justify;
   margin: 3em auto;
-  &:after { content: ''; width: 100%; display: inline-block; }
+
+  &:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+  }
 
   #header {
     display: inline-block;
@@ -384,25 +152,66 @@ header {
     }
   }
 }
-
-#content {
-  @include page;
-  line-height: 2em;
-  .main-listing { margin-bottom: 2em; }
+.page {
+  @include page();
 }
-
+.page-index {
+  @include wide-page();
+  header {
+    @include wide-page();
+  }
+}
 ul.listing {
-  margin-top: 1em;
-  li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+
+  .listing-item {
+    width: 100%;
     list-style-type:none;
     padding: 0;
-    &.listing-item { a { padding: .2em 0 .2em 2em; } time { color: #999; } &:hover { background-color: #f9f9f9; } }
-    &.listing-seperator {
-      font-family: #{$label-font};
-      &:before {
-        content: "\a0";
-        color: #ccc; }
+    font-weight: 300;
+
+    h1 {
+      color: #463636;
+      text-align: center;
+      padding: 1em 0 0 0;
+      margin: 0;
+    }
+    time {
+      display: block;
+      padding: .5em 0;
+      color: #999;
+      text-align: center;
+      text-transform: uppercase;
+      color: #b7aeae;
+    }
+    .thumb {
+      display: block;
+      width: 100%;
+      min-height: 200px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .excerpt {
+      margin: 0;
+      padding: 0 0 2.5em 0;
+    }
+    @include min-screen(660px) {
+      width: 310px;
+      .thumb {
+        height: 310px;
       }
+    }
+    @include min-screen(990px) {
+      width: 300px;
+      .thumb {
+        height: 300px;
+      }
+    }
   }
 }
 
