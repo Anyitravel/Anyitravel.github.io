@@ -1,0 +1,28 @@
+---
+layout: post
+title: test
+---
+
+``` javascript
+export default function loadScript(src) {
+    return new Promise(function(resolve, reject) {
+        // @see http://www.quirksmode.org/dom/events/load.html
+        var onload = function() {
+            resolve(src);
+            onload = onerror = null;
+        };
+        // @see http://www.quirksmode.org/dom/events/error.html
+        var onerror = function() {
+            reject(new Error('Can\'t load ' + src));
+            onload = onerror = null;
+        };
+        var script = document.createElement('script');
+
+        script.onload = onload;
+        script.onerror = onerror;
+        script.src = src;
+        document.head.appendChild(script);
+    });
+}
+
+```
