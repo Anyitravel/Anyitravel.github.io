@@ -7,6 +7,6 @@ paginate_path: /blog/page:num/
 
 navigations:
   - title: About
-    class: fa fa-user
+    icon: 👤
     href: /about.html
 

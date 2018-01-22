@@ -5,33 +5,32 @@ page_name: index
 
 <ul class="listing">
 {% for post in paginator.posts %}
-  <a class="listing-item" href="{{ post.url }}" title="{{ post.title }}">
-    {% if post.thumb %}
-        <b class="thumb"
-            style="background-image: url({{ post.thumb | absolute_url}})"></b>
-    {% else %}
-        <b class="thumb letter">
-            {{ post.title | truncate: 1,"" }}
-        </b>
-    {% endif %}
-    <h1>{{ post.title }}</h1>
-    <time datetime="{{ post.date | date:"%B %d, %Y" }}">
-        {{ post.date | date:"%B %d, %Y" }}
-    </time>
-    <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 50}}</p>
-  </a>
+<a class="listing-item" href="{{ post.url }}" title="{{ post.title }}">
+{% if post.thumb %}
+<b class="thumb" style="background-image: url({{ post.thumb | absolute_url}})"></b>
+{% else %}
+<b class="thumb letter">
+{{ post.title | truncate: 1,"" }}
+</b>
+{% endif %}
+<h1>{{ post.title }}</h1>
+<time datetime="{{ post.date | date:"%B %d, %Y" }}">
+{{ post.date | date:"%B %d, %Y" }}
+</time>
+<p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 36}}</p>
+</a>
 {% endfor %}
 </ul>
 
 <div class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">⟵Previous</a>
-  {% else %}
-    <span class="previous">⟵Previous</span>
-  {% endif %}
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Next⟶</a>
-  {% else %}
-    <span class="next ">Next⟶</span>
-  {% endif %}
+{% if paginator.previous_page %}
+<a href="{{ paginator.previous_page_path }}" class="previous">⟵Previous</a>
+{% else %}
+<span class="previous">⟵Previous</span>
+{% endif %}
+{% if paginator.next_page %}
+<a href="{{ paginator.next_page_path }}" class="next">Next⟶</a>
+{% else %}
+<span class="next ">Next⟶</span>
+{% endif %}
 </div>

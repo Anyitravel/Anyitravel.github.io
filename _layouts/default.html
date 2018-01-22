@@ -10,19 +10,18 @@
 <title>{{ site.name }}</title>
 {% endif %}
 <link rel="shortcut icon" href="/media/favicon.ico" />
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="/media/css/style.css" />
 <link rel="stylesheet" href="/media/css/syntax.css" />
 </head>
 <body>
 <div class="page page-{{page.page_name | default: layout.page_name}}">
 <header>
-<h1><a title="{{ site.name }}" class="" href="/">{{ site.name }}</a></h1>
+<h1><a title="{{ site.name }}" href="/">{{ site.name }}</a></h1>
 <nav>
 {% for nav in site.navigations %}
 <span>
 <a title="{{ nav.title }}" href="{{ nav.href }}">
-<i class="{{ nav.class }}"></i>
+{{ nav.icon }}
 </a>
 </span>
 {% endfor %}
