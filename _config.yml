@@ -4,9 +4,5 @@ highlighter: rouge
 permalink: /:year/:month/:day/:title
 paginate: 50
 paginate_path: /blog/page:num/
-
-navigations:
-  - title: About
-    icon: 👤
-    href: /about.html
-
+logo: /media/logo.svg
+logo_max_width: 105
