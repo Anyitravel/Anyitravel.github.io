@@ -1,0 +1,59 @@
+---
+layout: base
+css:
+    - /media/csjs/album.css
+js:
+    - /media/csjs/album.js
+---
+
+<div class="page-album flow">
+<header>
+{% if site.logo %}
+<a href="/">
+<img src="{{ site.logo }}" class="logo" style="max-width:{{ site.logo_max_width  }}px" />
+</a>
+{% endif %}
+</header>
+<div class="album">
+{% for a in page.album %}
+<div class="photo">
+<section class="pic">
+<img src="{{ a.pic }}" />
+</section>
+<section class="text">
+<h1>{{ a.title }}</h1>
+<div class="desc">{{ a.desc }}</div>
+</section>
+</div>
+{% endfor %}
+</div>
+<div class="time">
+<time datetime="{{ page.date | date:"%Y-%m-%d" }}">
+{{ page.date | date:"%b %d, %y" }}
+</time>
+</div>
+<div class="indicator">
+</div>
+<div class="loading">
+</div>
+</div>
+
+<script type="text/javascript">
+self.addEventListener('DOMContentLoaded', function() {
+    var timer;
+    var album = new Album();
+    var decideStyle = function() {
+        if (document.documentElement.clientWidth > 414) {
+            album.enable();
+        } else {
+            album.disable();
+        }
+    };
+
+    decideStyle();
+    self.addEventListener('resize', function() {
+        clearTimeout(timer);
+        timer = setTimeout(decideStyle, 200);
+    });
+});
+</script>

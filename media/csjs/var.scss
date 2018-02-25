@@ -1,0 +1,32 @@
+$font: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", "Noto Sans SC", sans-serif;
+$monospace: "Source Code Pro", Courier, 'Courier New', monospace;
+$highlight-color: #999;
+
+@mixin min-screen($res) {
+    @media screen and (min-width: $res) {
+        @content;
+    }
+}
+
+@mixin content-width($is_wide: false) {
+    @include min-screen(320px) {
+        width: 300px;
+    }
+    @include min-screen(375px) {
+        width: 350px;
+    }
+    @include min-screen(414px) {
+        width: 400px;
+    }
+    @include min-screen(660px) {
+        width: 660px;
+    }
+    @if ($is_wide) {
+        @include min-screen(990px) {
+            width: 990px;
+        }
+        @include min-screen(1320px) {
+            width: 1320px;
+        }
+    }
+}

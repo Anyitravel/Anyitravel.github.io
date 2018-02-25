@@ -1,0 +1,51 @@
+---
+layout: album
+title: '测试相册模版'
+thumb: /media/image/test/4.jpg
+album:
+    -   pic: /media/image/test/1.jpg
+        title: 传统模式
+        desc: >
+            <p>传统模式。使用立即执行的匿名函数（`;(function(){...})();`）
+            隔离模块，没有定义模块依赖关系的语法。模块之间通过定义在全局
+            作用域中的命名空间相互访问。在页面中，通过按依赖关系排列的
+            多个script 标签加载模块。在生产环境中一般会合并所有模块到一个
+            文件中。</p><p>
+            传统模式的最大问题是没有可以定义多文件之前依赖关系的语法，这
+            样就很难确定需要哪些文件以及这些文件以什么样的顺序去执行。</p>
+
+    -   pic: /media/image/test/2.jpg
+        title: Externally Defined
+        desc: >
+            传统模式的最大问题是没有可以定义多文件之前依赖关系的语法，这
+            样就很难确定需要哪些文件以及这些文件以什么样的顺序去执行。
+
+
+    -   pic: /media/image/test/3.jpg
+        title: Externally Defined
+        desc: >
+            外部定义依赖关系。这种模式同样使用立即执行的匿名函数隔离模块，
+            但加载方式和生成依赖关系图的方式不同。我们可以在一个单独文件
+            内定义文件之前的依赖关系，比如在一个 package 中包含一个配置
+            文件定义 package 内所有文件的依赖关系：
+
+
+    -   pic: /media/image/test/4.jpg
+        title: Inferred Dependencies
+        desc: >
+            像上面的代码，我们可以推断 `MyOtherModule` 是一个全局变量，
+            既然这里没有定义这个变量说明它是在其他模块中定义的。
+            有些模块不定义新的对象而是扩展已有对象（像 YUI 那样），
+            这种情况可以添加一个空对象来模拟一个模块产出的全局变量。
+
+    -   pic: /media/image/test/5.jpg
+        title: Comment Defined
+        desc: >
+            上面的代码可以在 Node.js 或与之兼容的环境下运行。如果
+            需要在浏览器端使用则需要加载器通过 XHR 加载文件内容，然
+            后解析代码建立依赖关系图。为了隔离模块（避免文件内变量泄漏到全局作用域）需
+            要将代码包裹在闭包中，然后通过注入到 script 标签内执行。
+
+---
+
+这是测试相册用的文章，制作时请参考此格式，正式使用后请删除此文件。

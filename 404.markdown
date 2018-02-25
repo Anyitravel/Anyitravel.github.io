@@ -1,6 +1,6 @@
 ---
 title: 404 No Page Found.
-layout: page
+layout: post
 ---
 
-[Click me to look around](/).
+The post is unavailable [Click me to look around](/).

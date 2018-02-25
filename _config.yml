@@ -6,3 +6,5 @@ paginate: 50
 paginate_path: /blog/page:num/
 logo: /media/logo.svg
 logo_max_width: 105
+sass:
+    sass_dir: ./media/csjs
