@@ -1,9 +1,9 @@
 ---
 layout: album
 title: 这个标题哪里显示呢
-thumb: /media/image/02282018/1.jpg
+thumb: /media/image/02282018/01.jpg
 album:
-    -   pic: /media/image/02282018/1.jpg
+    -   pic: /media/image/02282018/01.jpg
         title: 好温馨的画风
         desc: >
             <p>传统模式。使用立即执行的匿名函数（`;(function(){...})();`）
@@ -14,14 +14,14 @@ album:
             传统模式的最大问题是没有可以定义多文件之前依赖关系的语法，这
             样就很难确定需要哪些文件以及这些文件以什么样的顺序去执行。</p>
 
-    -   pic: /media/image/02282018/2.jpg
+    -   pic: /media/image/02282018/02.jpg
         title: 那个写日记的年代
         desc: >
             传统模式的最大问题是没有可以定义多文件之前依赖关系的语法，这
             样就很难确定需要哪些文件以及这些文件以什么样的顺序去执行。
 
 
-    -   pic: /media/image/02282018/3.jpg
+    -   pic: /media/image/02282018/03.jpg
         title: 放学路上
         desc: >
             外部定义依赖关系。这种模式同样使用立即执行的匿名函数隔离模块，
