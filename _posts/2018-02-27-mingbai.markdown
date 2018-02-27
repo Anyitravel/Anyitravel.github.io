@@ -1,6 +1,6 @@
 ---
 layout: album
-title: ‘这个标题哪里显示呢’
+title: 这个标题哪里显示呢
 thumb: /media/image/02282018/1.jpg
 album:
     -   pic: /media/image/02282018/1.jpg
@@ -29,4 +29,5 @@ album:
             内定义文件之前的依赖关系，比如在一个 package 中包含一个配置
             文件定义 package 内所有文件的依赖关系：
 ---
+
 灵活灵活
