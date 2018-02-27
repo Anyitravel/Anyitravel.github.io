@@ -1,6 +1,6 @@
 ---
 layout: album
-title:插画女孩系列
+title: 插画女孩系列
 thumb: /media/image/02282018/5.jpg
 album:
     -   pic: /media/image/02282018/5.jpg
@@ -35,6 +35,7 @@ album:
             但加载方式和生成依赖关系图的方式不同。我们可以在一个单独文件
             内定义文件之前的依赖关系，比如在一个 package 中包含一个配置
             文件定义 package 内所有文件的依赖关系：
+            
 ---
 
 大千世界, 灵动的精灵们
